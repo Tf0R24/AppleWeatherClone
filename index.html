@@ -11,10 +11,86 @@
 <body>
     <div class="wrapper">
         <div class="sidebar">
-            <div class="btn close-btn"></div>
+            <div class="windowButtonWrapper">
+                <div class="btn close-btn"></div>
+                <div class="btn min-btn"></div>
+                <div class="btn max-btn"></div>
+            </div>
+            <div class="locationList">
+                <div class="myLocation">
+                    <div class="locationTopContainer">
+                        <div class="locationNameContainer">
+                            <p>My Location</p>
+                            <p>9:41</p>
+                        </div>
+                        <div class="locationTempContainer">
+                            <p class="locationTemp">23°</p>
+                        </div>
+                    </div>
+                    <div class="locationBottomContainer">
+                        <p>Sunny</p>
+                        <p>H:26° L:17°</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="content">
-            <img src="https://www.placehold.it/40" alt="Hide sidebar">
+            <div class="contentTopContainer">
+                <img src="https://www.placehold.it/40" alt="Hide sidebar">
+                <input type="search" placeholder="Search">
+            </div>
+            <div class="contentTitleContainer">
+
+            </div>
+            <div class="contentMainContainerFlex">
+                <div class="contentMainContainer">
+                    <div class="contentLeftContainer">
+                        <div class="rainChance">
+                            <p>Possible Light Rain</p>
+                            <p>Chance of light rain for the next hour.</p>
+                        </div>
+                        <div id="tenDayForecast">
+                            <p>Ten Day forecast</p>
+                            <div id="day1">
+                                <p>Today</p>
+                            </div>
+                            <div id="day2">
+                                <p>Sunday</p>
+                            </div>
+                            <div id="day3">
+                                <p>Monday</p>
+                            </div>
+                            <div id="day4">
+                                <p>Tuesday</p>
+                            </div>
+                            <div id="day5">
+                                <p>Wednesday</p>
+                            </div>
+                            <div id="day6">
+                                <p>Today</p>
+                            </div>
+                            <div id="day7">
+                                <p>Sunday</p>
+                            </div>
+                            <div id="day8">
+                                <p>Monday</p>
+                            </div>
+                            <div id="day9">
+                                <p>Tuesday</p>
+                            </div>
+                            <div id="day10">
+                                <p>Wednesday</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentRightContainer">
+    
+                    </div>
+                </div>
+            </div>
+            <div class="contentStreetNameContainer">
+
+            </div>
         </div>
     </div>
 </body>

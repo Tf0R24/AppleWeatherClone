@@ -12,38 +12,54 @@
 /* SIDEBAR STUFF */
 
 .sidebar{
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    width: 15vw;
+    width: 13vw;
     background-color: #1D71F2;
 }
 
-.btn{
-    width: 60px;
-    height: 60px;
+.windowButtonWrapper{
+    display: flex;
+    flex-direction: row;
+    margin: 16px;
+}
+
+.btn {
+    margin: 4px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
-    margin-right: 60px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
 }
-
+  
 .btn:before, .btn:after {
     content: "";
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 4px;
+    border-radius: 1px;
     opacity: 0;
+    transition: all 300ms ease-in-out;
 }
-
+  
 .close-btn {
     background: #FF5D5B;
-    border: 4px solid #CF544D;
+}
+  
+.min-btn {
+    background: #FFBB39;
+}
+  
+.max-btn {
+    background: #00CD4E;
 }
 
 .close-btn:before, .close-btn:after {
-    width: 4px;
+    width: 1px;
     height: 70%;
     background: #460100;
 }
@@ -56,16 +72,90 @@
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+.min-btn:before {
+    width: 70%;
+    height: 1px;
+    background: #460100;
+}
+  
+.max-btn:before {
+    width: 6px;
+    height: 6px;
+    background: #024D0F;
+}
+  
+.max-btn:after {
+    width: 2px; /*how far away the arrows are from each other*/
+    height: 10px;  /*20% more than height before*/
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #00CD4E;
+}
+
 .btn:hover:before, .btn:hover:after {
     top: 50%;
     opacity: 1;
 }
 
 
+/* LOCATION LIST */
+
+.locationList{
+    margin: 16px;
+}
+
+.myLocation{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.locationTopContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.locationNameContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.locationTempContainer{
+
+}
+
+.locationTemp{
+    font-size: 200%;
+}
+
+.locationBottomContainer{
+    display: flex;
+    justify-content: space-between;
+}
 
 /* MAIN CONTENT */
 
 .content{
+    display: flex;
+    flex-direction: column;
     background-color: #19C3FB;
-    width: 85vw;
+    width: 87vw;
+}
+
+.contentTopContainer{
+    margin: 8px;
+    height: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contentMainContainerFlex{
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+}
+
+.contentMainContainer{
+    display: flex;
 }
