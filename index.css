@@ -164,6 +164,7 @@
 
 .contentMainContainer{
     display: flex;
+    justify-content: center;
 }
 
 .contentLeftContainer{
@@ -175,7 +176,113 @@
     justify-content: space-between;
 }
 
+.leftBottomContainer{
+    display: flex;
+}
+
+.leftBottomRightContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.leftBottomRightBottomContainer{
+    display: flex;
+}
+
+.leftBottomRightBottomRightContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.leftBottomRightBottomLeftContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.uvIndexContainer{
+
+}
+
+.feelsLikeContainer{
+
+}
+
+.sunsetContainer{
+
+}
+
+.humidityContainer{
+
+}
+
+.contentRightContainer{
+
+}
+
+.contentRightBottomContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.contentRightBottomLeftContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.contentRightBottomRightContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .contentStreetNameContainer{
     display: flex;
     justify-content: center;
+}
+
+
+
+/* DIV STYLES */
+
+.square1x1{
+    height: 144px;
+    width: 144px;
+    margin: 8px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.square2x2{
+    height: 306px;
+    width: 304px;
+    margin: 8px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.rectangle{
+    height: 144px;
+    width: 306px;
+    margin: 8px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.rectangle2x3{
+    height: 468px;
+    width: 306px;
+    margin: 8px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.rectangle4x1{
+    height: 144px;
+    width: 630px;
+    margin: 8px;
+    border-style: solid;
+    border-width: 1px;
 }
