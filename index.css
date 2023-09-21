@@ -150,6 +150,12 @@
     justify-content: space-between;
 }
 
+.contentTitleContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .contentMainContainerFlex{
     /* height: 100vh; */
     display: flex;
@@ -158,4 +164,18 @@
 
 .contentMainContainer{
     display: flex;
+}
+
+.contentLeftContainer{
+    
+}
+
+.tenDay{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentStreetNameContainer{
+    display: flex;
+    justify-content: center;
 }
