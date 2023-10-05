@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <title>Weather</title>
 </head>
@@ -22,15 +23,15 @@
                     <div class="locationTopContainer">
                         <div class="locationNameContainer">
                             <p>My Location</p>
-                            <p>9:41</p>
+                            <p class="sidebarTime">9:41</p>
                         </div>
                         <div class="locationTempContainer">
-                            <p class="locationTemp">23°</p>
+                            <p class="sidebarTemp">23°</p>
                         </div>
                     </div>
                     <div class="locationBottomContainer">
-                        <p>Sunny</p>
-                        <p>H:26° L:17°</p>
+                        <p class="sidebarConditions">Sunny</p>
+                        <p class="sidebarHighLow">H:26° L:17°</p>
                     </div>
                 </div>
             </div>
@@ -41,16 +42,16 @@
                 <input type="search" placeholder="Search">
             </div>
             <div class="contentTitleContainer">
-                <p>Leeds</p>
-                <p>23°</p>
-                <p>Sunny</p>
-                <p>H:26° L:17°</p>
+                <p class="topLocation">Leeds</p>
+                <p class="topTemp">23°</p>
+                <p class="topConditions">Sunny</p>
+                <p class="topHighLow">H:26° L:17°</p>
             </div>
             <div class="contentMainContainerFlex">
                 <div class="contentMainContainer">
                     <div class="contentLeftContainer">
                         <div class="leftTopContainer rectangle4x1">
-
+                            <p>Hourly Forecast</p>
                         </div>
                         <div class="leftBottomContainer">
                             <div class="leftBottomLeftContainer rectangle2x3">
@@ -100,23 +101,27 @@
                             </div>
                             <div class="leftBottomRightContainer">
                                 <div class="airPollutionContainer rectangle">
-
+                                    <p class="airPollution">Air Pollution</p>
                                 </div>
                                 <div class="leftBottomRightBottomContainer">
                                     <div class="leftBottomRightBottomLeftContainer">
                                         <div class="uvIndexContainer square1x1">
-
+                                            <p class="boxTitle">UV Index</p>
+                                            <p class="uvIndex">0</p>
                                         </div>
                                         <div class="feelsLikeContainer square1x1">
-    
+                                            <p class="boxTitle">Feels like</p>
+                                            <p class="feelsLike">0</p>
                                         </div>
                                     </div>
                                     <div class="leftBottomRightBottomRightContainer">
                                         <div class="sunsetContainer square1x1">
-    
+                                            <p class="boxTitle">Sunset</p>
+                                            <p class="sunset">09:41</p>
                                         </div>
                                         <div class="humidityContainer square1x1">
-    
+                                            <p class="boxTitle">Humidity</p>
+                                            <p class="humidity">0</p>
                                         </div>
                                     </div>
                                 </div>
@@ -125,23 +130,27 @@
                     </div>
                     <div class="contentRightContainer">
                         <div class="contentRightTopContainer square2x2">
-
+                            <p>Precipitation Map</p>
                         </div>
                         <div class="contentRightBottomContainer">
                             <div class="contentRightBottomLeftContainer">
                                 <div class="windContainer square1x1">
-    
+                                    <p class="boxTitle">Wind</p>
+                                    <p class="wind">0</p>
                                 </div>
                                 <div class="visibilityContainer square1x1">
-
+                                    <p class="boxTitle">Visibility</p>
+                                    <p class="visibility">0</p>
                                 </div>
                             </div>
                             <div class="contentRightBottomRightContainer">
-                                <div class="rainfallContainer square1x1">
-    
+                                <div class="precipitationContainer square1x1">
+                                    <p class="boxTitle">Precipitation</p>
+                                    <p class="precipitation">0</p>
                                 </div>
                                 <div class="pressureContainer square1x1">
-
+                                    <p class="boxTitle">Pressure</p>
+                                    <p class="pressure">0</p>
                                 </div>
                             </div>
                         </div>

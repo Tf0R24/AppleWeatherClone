@@ -1,20 +1,82 @@
 window.addEventListener('load', function () {
-
     geoSetup();
 
-    //API Function
+    // Fill Data Function
     function runApi(weather) {
-        console.log(weather);
-        console.log(JSON.parse(JSON.stringify(weather.address)));
+
+        const currentWeather = JSON.parse(JSON.stringify(weather.days[0]));
+
+
+
+        // SIDEBAR DATA
+
+        const sidebarTime = document.getElementsByClassName("sidebarTime")[0];
+        sidebarTime.innerHTML = getTime();;
+
+        const sidebarTemp = document.getElementsByClassName("sidebarTemp")[0];
+        sidebarTemp.innerHTML = currentWeather.temp + "°";
+
+        const sidebarConditions = document.getElementsByClassName("sidebarConditions")[0];
+        sidebarConditions.innerHTML = cleanCondition(currentWeather.conditions);
+
+        const sidebarHighLow = document.getElementsByClassName("sidebarHighLow")[0];
+        sidebarHighLow.innerHTML = "H:" + currentWeather.tempmin + "° L:" + currentWeather.tempmax + "°";
+
+        // TOP CONTENT DATA
+
+        const topLocation = document.getElementsByClassName("topLocation")[0];
+        topLocation.innerHTML = weather.location;
+
+        const topTemp = document.getElementsByClassName("topTemp")[0];
+        topTemp.innerHTML = currentWeather.temp + "°";
+
+        const topConditions = document.getElementsByClassName("topConditions")[0];
+        topConditions.innerHTML = currentWeather.conditions;
+
+        const topHighLow = document.getElementsByClassName("topHighLow")[0];
+        topHighLow.innerHTML = "H:" + currentWeather.tempmin + "° L:" + currentWeather.tempmax + "°";
+
+
+        // LEFT 4
+
+        const uvIndex = document.getElementsByClassName("uvIndex")[0];
+        uvIndex.innerHTML = currentWeather.uvindex;
+
+        const feelsLike = document.getElementsByClassName("feelsLike")[0];
+        feelsLike.innerHTML = currentWeather.feelslike;
+
+        const sunset = document.getElementsByClassName("sunset")[0];
+        sunset.innerHTML = cleanTime(currentWeather.sunset);
+
+        const humidity = document.getElementsByClassName("humidity")[0];
+        humidity.innerHTML = currentWeather.humidity + "%";
+
+        // RIGHT 4
+
+        const wind = document.getElementsByClassName("wind")[0];
+        wind.innerHTML = currentWeather.windspeed + "mph";
+
+        const visibility = document.getElementsByClassName("visibility")[0];
+        visibility.innerHTML = currentWeather.visibility + "mi";
+
+        const Precipitation = document.getElementsByClassName("precipitation")[0];
+        Precipitation.innerHTML = currentWeather.precip + "mm";
+
+        const pressure = document.getElementsByClassName("pressure")[0];
+        pressure.innerHTML = currentWeather.pressure + "hPa";
+
+        console.log(currentWeather);
     }
 
     // GEOLOCATION SETUP
 
     async function geoSetup(){
+        //check if geolocation is 
         const successCallback = (position) => {
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
-            apiSetup();
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            let latlong = latitude + "%2C" + longitude;
+            apiSetup(latlong);
         };
         const errorCallback = (error) => {
             console.log(error);
@@ -23,10 +85,10 @@ window.addEventListener('load', function () {
     }
 
     // API SETUP
-    async function apiSetup(){
+    async function apiSetup(URLString){
         console.log("Ive been waiting!");
         const response = await fetch(
-            "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Leeds?unitGroup=uk&include=days&key=7NXFV8AJEAKU3BYMBQESNEHU8&contentType=json",
+            `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${URLString}?unitGroup=uk&key=7NXFV8AJEAKU3BYMBQESNEHU8&contentType=json&elements=%2Baqieur`,
             {
                 method: 'GET',
                 headers: {}
@@ -37,5 +99,28 @@ window.addEventListener('load', function () {
         }
         const data = await response.json();
         runApi(data);
+    }
+
+    // TIME SETUP
+    function getTime(){
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes();
+        return time;
+    }
+
+    function cleanTime(time){
+        return time.substring(0, 5);
+    }
+
+    function cleanCondition(inputString) {
+        const commaIndex = inputString.indexOf(',');
+
+        // If a comma is found, remove everything after it
+        if (commaIndex !== -1) {
+            return inputString.substring(0, commaIndex);
+        }
+      
+        // If no comma is found, return the original string
+        return inputString;
     }
 })

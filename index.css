@@ -127,11 +127,7 @@
     flex-direction: column;
 }
 
-.locationTempContainer{
-
-}
-
-.locationTemp{
+.sidebarTemp{
     font-size: 200%;
 }
 
@@ -161,6 +157,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.topLocation{
+
+}
+
+.topTemp{
+    font-size: 200%;
+}
+
+.topConditions{
+
 }
 
 .contentMainContainerFlex{
