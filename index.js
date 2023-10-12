@@ -14,13 +14,13 @@ window.addEventListener('load', function () {
         sidebarTime.innerHTML = getTime();;
 
         const sidebarTemp = document.getElementsByClassName("sidebarTemp")[0];
-        sidebarTemp.innerHTML = currentWeather.temp + "°";
+        sidebarTemp.innerHTML = cleanTemp(currentWeather.temp) + "°";
 
         const sidebarConditions = document.getElementsByClassName("sidebarConditions")[0];
         sidebarConditions.innerHTML = cleanCondition(currentWeather.conditions);
 
         const sidebarHighLow = document.getElementsByClassName("sidebarHighLow")[0];
-        sidebarHighLow.innerHTML = "H:" + currentWeather.tempmin + "° L:" + currentWeather.tempmax + "°";
+        sidebarHighLow.innerHTML = "H:" + cleanTemp(currentWeather.tempmin) + "° L:" + cleanTemp(currentWeather.tempmax + "°");
 
         // TOP CONTENT DATA
 
@@ -28,13 +28,13 @@ window.addEventListener('load', function () {
         topLocation.innerHTML = weather.location;
 
         const topTemp = document.getElementsByClassName("topTemp")[0];
-        topTemp.innerHTML = currentWeather.temp + "°";
+        topTemp.innerHTML = cleanTemp(currentWeather.temp) + "°";
 
         const topConditions = document.getElementsByClassName("topConditions")[0];
         topConditions.innerHTML = currentWeather.conditions;
 
         const topHighLow = document.getElementsByClassName("topHighLow")[0];
-        topHighLow.innerHTML = "H:" + currentWeather.tempmin + "° L:" + currentWeather.tempmax + "°";
+        topHighLow.innerHTML = "H:" + cleanTemp(currentWeather.tempmin) + "° L:" + cleanTemp(currentWeather.tempmax) + "°";
 
 
         // LEFT 4
@@ -43,7 +43,7 @@ window.addEventListener('load', function () {
         uvIndex.innerHTML = currentWeather.uvindex;
 
         const feelsLike = document.getElementsByClassName("feelsLike")[0];
-        feelsLike.innerHTML = currentWeather.feelslike;
+        feelsLike.innerHTML = cleanTemp(currentWeather.feelslike);
 
         const sunset = document.getElementsByClassName("sunset")[0];
         sunset.innerHTML = cleanTime(currentWeather.sunset);
@@ -122,5 +122,18 @@ window.addEventListener('load', function () {
       
         // If no comma is found, return the original string
         return inputString;
+    }
+
+    function cleanTemp(inputString) {
+        const temp = '' + inputString;
+        const dotIndex = temp.indexOf('.');
+
+        // If a comma is found, remove everything after it
+        if (dotIndex !== -1) {
+            return temp.substring(0, dotIndex);
+        }
+      
+        // If no comma is found, return the original string
+        return temp;
     }
 })
