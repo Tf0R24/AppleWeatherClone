@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
         sidebarConditions.innerHTML = cleanCondition(currentWeather.conditions);
 
         const sidebarHighLow = document.getElementsByClassName("sidebarHighLow")[0];
-        sidebarHighLow.innerHTML = "H:" + cleanTemp(currentWeather.tempmin) + "° L:" + cleanTemp(currentWeather.tempmax + "°");
+        sidebarHighLow.innerHTML = "H:" + cleanTemp(currentWeather.tempmax) + "° L:" + cleanTemp(currentWeather.tempmin + "°");
 
         // TOP CONTENT DATA
 
@@ -66,6 +66,16 @@ window.addEventListener('load', function () {
         pressure.innerHTML = currentWeather.pressure + "hPa";
 
         console.log(currentWeather);
+
+        hourly(currentWeather);
+    }
+
+    // HOURLY SETUP
+
+    async function hourly(weather){
+        for (let x = 0; x < weather.hours.length; x++){
+            console.log(weather.hours[x]);
+        }
     }
 
     // GEOLOCATION SETUP
@@ -104,7 +114,13 @@ window.addEventListener('load', function () {
     // TIME SETUP
     function getTime(){
         var today = new Date();
-        var time = today.getHours() + ":" + today.getMinutes();
+        if (today.getMinutes().length == 1){
+            const minutes = "0" + today.getMinutes();
+        }
+        else{
+            minutes = today.getMinutes();
+        }
+        var time = today.getHours() + ":" + minutes;
         return time;
     }
 
